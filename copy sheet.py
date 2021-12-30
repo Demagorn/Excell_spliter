@@ -164,10 +164,8 @@ for director in director_list:
     df_director = df.loc[df["Director"] == director]
     group_managers = list(df_director["Group Manager"].unique())
     director_folder = create_file_director(director,group_managers)
-    print("created")
     wb = load_workbook(f"{director_folder}/{director}.xlsx")
     for manager in group_managers:
-        print(f"Starting manager {manager}")
         ws_director = wb[manager]
         manager_folder = create_file_manager(director_folder,manager)
         wb_manager = load_workbook(f"{manager_folder}/{manager}.xlsx")
